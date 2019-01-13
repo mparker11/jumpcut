@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "jumpcut-interview",
+  "private_key_id": "71dfe1ceb6748a14b26eadfef2d2b10047bc4da2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCm+WinbnLVo/NG\nxX2BSirtWYDWSxYeXfuHUDZosLNZ/3pyCA8Mz2zcX7ZwKgFnlGGAQSNC8easGt+x\nl7ezCbW0adfRlThCJYQz+R5HKNu0PEFtVarYaMGaTB5G0SvFw5hkS8bOs8uOiKiy\n27DE6rD1vTPHzGEpunJ6VWsL13bZIO3hGqwCPDXwLnaIYM9CB/mWp8r9A4Bb1Clr\nQD4ysiglfXIAuDfQ3DMPv8nimoFG1IWBPToZvYrjdf5xZPHqUqNNlBXgRunmlGGT\nTiVFzEMUISPDCNz+KQz7JspDm/hOGgGLLe2DheppIciSbENir7JjbC9N+aVZLpT+\n9cOVsh6tAgMBAAECggEAMD4JPa7MoOtAo6b1rwA1zOO6NK/3EQkIXj0Pq0m6V/tX\nblDjwEjB5B4HQPrx8vJNBVhMjtADXKBbFx2FpsXcaObXwycA3SOnwbhtRhQI/lcW\ndDd3KBWEMkdhzAYtRnNPuVKnexs5adIUI7ETrqE8RZPHvSdQv1SuNKgvSHmVTgAd\nCMETl1wJQiLWW9sSwwLLclOLd3V1GJtSSOyfkAOKnVaQgyKgYgRgcEiY851ksEqz\nTWFUAL3aWmrGnyrR4dVynxsCNIMqSOEY16tnsdQSX8HxgDM/UYuGPDWuDUB5slf/\nThi7XjXYU/dF+WYfedwfpKZGW7V9PIhxOMS4N14p5QKBgQDXWr9dHQ2l5xmhiydH\nQgip2Rst/QOEkcxWBogA7B2O01EvZfsyRHvHp0SIM2fA4AXB3l7S79PgW7mldSKD\n8+V1WpOHFPy8YlKPPQfM6EnBKfwpbXJKyiXJzuimdScHUPRVeIHKQKzg3jLuiEDf\nXaa8eQlmkIHf7GKFZ9ijKgP1OwKBgQDGfRSbloOwd6xUZ7qce0cw2IIVhEQ5hTVc\nxCUHF7uDqea+IGvvhALUEg/BolmCVfhX72/psqDYsnhzMBNP2Ek8wnUDqrqO6eUU\nINBIvyB8NiY0Zog0tzLlZvKL3s8NbHl1v6HpDv73iWWqbUveBhhP/QtkI3NnrW0/\nt+n3qCZdNwKBgQCujw5CaYRgj7yE5wiFiA8BrcuMMWQilxOsP0sKhFlJJhzOcLl2\ne3Bh20F/rTtSacQA60CtdlylpXQLm7DIiG/b+flPK0HZaVFGbc/e1gLCokeVRPO5\nj7WlqSOHmbpzAbmrdiyuRlJbS4C5PJRo+b5nUyy9iDDd0vvg6tX9G9dtdQKBgQC9\nD3cJnBxjghoLa6I8WtA8nn2JsSqq/08MxWffkaNyjerTPl6RDdUD2xBXCCTqGKks\nWUzn9NVwks5YKXq7mvBnh3GdxIlehztEKN077ZErvwg08VTboYRBLgXpZJkj2Cb5\nGUdHjpkdfynvY5vYJ0YRKp4nC/1oy7A7+RpKY0fnkQKBgFhDfC7l0iAq+MizSXQP\ncYqH93okr8fu+G7M8BrpVjVapbU9hnd8YjRKwa8wVcNkWZERLuOpfaZE8D2+f32w\nCAmEQtyytjra7Lhnt888/nD9lCpAJSjz6qg5kLZqr69jFiYmcbJA96R+srJ2IU5S\ny1BhxNK3Nl9lSdK3ecGQ+oCq\n-----END PRIVATE KEY-----\n",
+  "client_email": "import-json@jumpcut-interview.iam.gserviceaccount.com",
+  "client_id": "116123945858553730369",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/import-json%40jumpcut-interview.iam.gserviceaccount.com"
+}

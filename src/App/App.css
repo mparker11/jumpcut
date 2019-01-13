@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'HindLight';
+    src: url('../__assets/fonts/Hind-Light.ttf');
+}
+@font-face {
+    font-family: 'HindRegular';
+    src: url('../__assets/fonts/Hind-Regular.ttf');
+}
+@font-face {
+    font-family: 'HindMedium';
+    src: url('../__assets/fonts/Hind-Medium.ttf');
+}
+@font-face {
+    font-family: 'HindSemiBold';
+    src: url('../__assets/fonts/Hind-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'HindBold';
+    src: url('../__assets/fonts/Hind-Bold.ttf');
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3 {
+    font-family: 'HindBold';
+    font-weight: normal;
+    margin: 0;
+}
+a, p, span, div {
+    font-family: 'HindRegular';
+    font-weight: normal;
+}

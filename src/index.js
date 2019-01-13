@@ -1,8 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import App from './App/App';
 import * as serviceWorker from './serviceWorker';
+import firebase from 'firebase';
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDXiLqXzB7AnA_0wMZp5PSl0Y9GqYjXliI",
+    authDomain: "jumpcut-interview.firebaseapp.com",
+    databaseURL: "https://jumpcut-interview.firebaseio.com",
+    projectId: "jumpcut-interview",
+    storageBucket: "jumpcut-interview.appspot.com",
+    messagingSenderId: "691619433397"
+};
+firebase.initializeApp(config);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

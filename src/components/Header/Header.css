@@ -1,0 +1,74 @@
+header {
+    width: 100%;
+    height: 75px;
+    background-color: #161616;
+    box-sizing: border-box;
+}
+header .inner-header {
+    width: 100%;
+    max-width: 1600px;
+    height: 100%;
+    margin: 0 auto;
+    padding-left: 60px;
+    padding-right: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+header .left-header, header .right-header {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    line-height: 0;
+}
+header .left-header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+header .left-header a.active {
+    color: #35e8ca;
+}
+header .left-header a:not(:last-of-type) {
+    margin-right: 35px;
+}
+header .right-header button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+header .right-header button:not(:last-of-type) {
+    margin-right: 25px;
+}
+header .right-header button i {
+    color: #fff;
+    font-size: 1.5rem;
+}
+header .right-header .profile-image {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background-color: #606060;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+header .right-header .profile-image .icon-user {
+    font-size: 1.375rem;
+    position: relative;
+    top: 4px;
+}
+header .right-header .profile-image + span {
+    color: #fff;
+    font-size: 1.3175rem;
+    letter-spacing: 1px;
+    margin-right: 5px;
+}
+header .right-header .profile-image ~ .icon-caret-down {
+    font-size: 1.25rem;
+    position: relative;
+    top: 3px;
+}
