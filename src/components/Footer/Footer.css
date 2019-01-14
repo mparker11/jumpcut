@@ -46,3 +46,14 @@ footer .wrapper {
         color: #aaa;
     }
 }
+@media screen and (max-width: 480px) {
+    footer .wrapper {
+        display: block;
+    }
+    .footer-left {
+        text-align: center;
+    }
+    .footer-right {
+        display: none;
+    }
+}

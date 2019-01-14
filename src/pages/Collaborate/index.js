@@ -78,12 +78,13 @@ class Collaborate extends Component {
         let fontSize = '20px';
         let inputPadding = '0.75em 2.5em';
         
-        if (window.innerWidth <= 1024) {
+        if (window.innerWidth <= 768) {
+            fontSize = '16px';
+            inputPadding = '0.25em 1em';
+        } else if (window.innerWidth <= 1024) {
             fontSize = '18px';
             inputPadding = '0.5em 2.5em';
-        } else if (window.innerWidth <= 768) {
-
-        }
+        } 
 
         return {
             valueContainer: (base) => ({
@@ -208,8 +209,6 @@ class Collaborate extends Component {
     }
 
     render() {
-        
-
         const { location } = this.props;
         const locationString = `
             ${ location.city },&nbsp;

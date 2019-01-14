@@ -91,6 +91,17 @@ header .right-header .profile-image ~ .icon-caret-down {
     }
     .mobile-menu-icon {
         display: block;
-        
+    }
+}
+@media screen and (max-width: 480px) {
+    header {
+        height: 50px;
+    }
+    header .inner-header {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    .logo img {
+        height: 22px;
     }
 }
