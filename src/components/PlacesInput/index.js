@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class PlacesInput extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            value: ''
-        };
-
-        this.googlePlacesScript = null;
-        this.autocomplete = null;
-    }
+    googlePlacesScript = null;
+    autocomplete = null;
+    state = {
+        value: ''
+    };
     
     componentDidMount() {
         //load google places api JS
@@ -44,6 +40,10 @@ class PlacesInput extends Component {
             <input name="google-places-field" type="text" value={this.state.value} onChange={this.onChange} />
         );
     }
+}
+
+PlacesInput.propTypes = {
+    radius: PropTypes.number.isRequired
 }
 
 export default PlacesInput;
