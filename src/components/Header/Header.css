@@ -9,8 +9,8 @@ header .inner-header {
     max-width: 1600px;
     height: 100%;
     margin: 0 auto;
-    padding-left: 15.3125em;
-    padding-right: 15.3125em;
+    padding-left: 14.5em;
+    padding-right: 14.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +41,7 @@ header .right-header button {
     cursor: pointer;
 }
 header .right-header button:not(:last-of-type) {
-    margin-right: 25px;
+    margin-right: 15px;
 }
 header .right-header button i {
     color: #fff;

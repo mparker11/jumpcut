@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PlacesProvider } from '../__context/places';
 
 import '../__assets/styles/icons.css';
 import './App.css';
@@ -14,7 +15,9 @@ class App extends Component {
         return (
             <>
                 <Header />
-                <Collaborate />
+                <PlacesProvider>
+                    <Collaborate />
+                </PlacesProvider>
                 <footer></footer>
             </>
         );

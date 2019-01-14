@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import { PlacesConsumer } from '../../__context/places';
 
 import './Collaborate.css';
 
@@ -9,9 +10,14 @@ import PlacesInput from '../../components/PlacesInput';
 require('firebase/firestore');
 
 class Collaborate extends Component {
+    db = null;
+
     state = {
         radius: -1,
-        interests: []
+        interests: [],
+        formDistance: '',
+        formInterests: [],
+        searchResults: []
     }
     
     locationRangeOptions = [
@@ -31,10 +37,10 @@ class Collaborate extends Component {
     ];
 
     async componentDidMount() {
-        let db = firebase.firestore();
-        db.settings({ timestampsInSnapshots: true });
+        this.db = firebase.firestore();
+        this.db.settings({ timestampsInSnapshots: true });
 
-        const interestSnapshot = await db.collection('interests').get();
+        const interestSnapshot = await this.db.collection('interests').get();
         let interests = [];
         interestSnapshot.forEach((doc) => {
             //using the model, return valid <select /> option objects
@@ -47,9 +53,43 @@ class Collaborate extends Component {
         this.setState({ interests: interests });
     }
 
-    searchVloggers = (e) => {
+    selectOption = (selection, metaData) => {
+        let value = null;
+
+        if (Array.isArray(selection)) {
+            value = [];
+            selection.forEach((obj) => {
+                value.push(obj.value);
+            });
+        } else {
+            value = selection.value;
+        }
+        
+        this.setState({ [metaData.name]: value });
+    }
+
+    searchVloggers = async (e) => {
         e.preventDefault();
-        console.log(e);
+        
+        //build the query
+        let query = this.db.collection('users')
+            .where('country', '==', this.props.location.country)
+            .where('stateProv', '==', this.props.location.stateProv)
+            .where('city', '==', this.props.location.city);
+
+        const usersSnapshot = await query.get();
+        const users = [];
+        
+        usersSnapshot.forEach((doc) => {
+            users.push(doc.data());
+        });
+
+        //filter by interests - firebase has a limitation on querying by multiple values
+        const searchResults = users.filter((user) => {
+            return user.interests.some((interest) => this.state.formInterests.includes(interest));
+        });
+
+        this.setState({ searchResults: searchResults });
     }
     
     render() {
@@ -88,24 +128,26 @@ class Collaborate extends Component {
                             <div className="search-group">
                                 <PlacesInput radius={this.state.radius} />
                                 <Select 
-                                    name="location-radius" 
+                                    name="formDistance" 
                                     options={this.locationRangeOptions}
                                     placeholder="Distance"
                                     styles={selectStyles}
+                                    onChange={this.selectOption}
                                 />
                             </div>
                             <div className="search-group">
                                 <Select 
-                                    name="interests-field"
+                                    name="formInterests"
                                     isMulti
                                     options={this.state.interests}
                                     placeholder="What are your interests?"
                                     styles={selectStyles}
+                                    onChange={this.selectOption}
                                 />
                             </div>
                             <div className="search-group">
                                 <Select 
-                                    name="extra-search-options" 
+                                    name="formOtherStuff" 
                                     options={this.ideaBoxOptions} 
                                     placeholder="What else are you searching?"
                                     styles={selectStyles}
@@ -116,10 +158,24 @@ class Collaborate extends Component {
                             </div>
                         </form>
                     </div>
-               </div>
+                </div>
+                <div className="search-results-section">
+                    {
+                        this.state.searchResults.length > 0 &&
+                        <p>{this.state.searchResults.length} vloggers near {this.props.location.city}</p>
+                    }
+                </div>
             </div>
         );
     }
 }
 
-export default Collaborate;
+export default (props) => {
+    return (
+        <PlacesConsumer>{
+            ({location}) => {
+                return <Collaborate {...props} location={location} />
+            }
+        }</PlacesConsumer>
+    )
+}

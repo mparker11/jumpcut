@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import __find from 'lodash/find';
+import { PlacesConsumer } from '../../__context/places';
 
 class PlacesInput extends Component {
     googlePlacesScript = null;
     autocomplete = null;
-    state = {
-        value: ''
-    };
     
     componentDidMount() {
         //load google places api JS
@@ -19,10 +18,37 @@ class PlacesInput extends Component {
         document.head.appendChild(this.googlePlacesScript);
 
         this.googlePlacesScript.onload = () => {
-            const placesField = document.querySelector('[name="google-places-field"]');
+            const placesField = document.querySelector('[name="googlePlacesField"]');
             // eslint-disable-next-line no-undef
             this.autocomplete = new google.maps.places.Autocomplete(placesField, {
                 types: ['(cities)'] 
+            });
+
+            // eslint-disable-next-line no-undef
+            google.maps.event.addListener(this.autocomplete, 'place_changed', () => {
+                const place = this.autocomplete.getPlace();
+
+                //weed through google api jibberish to format a 
+                //more readable return object with the city, stateProv and country
+                const city = __find(place.address_components, (component) => {
+                    return component.types.includes('locality');
+                });
+
+                const stateProv = __find(place.address_components, (component) => {
+                    return component.types.includes('administrative_area_level_1');
+                });
+
+                const country = __find(place.address_components, (component) => {
+                    return component.types.includes('country');
+                });
+
+                const formattedPlace = {
+                    city: city.long_name,
+                    stateProv: stateProv.long_name,
+                    country: country.long_name
+                };
+
+                this.props.setGlobalLocation(formattedPlace);
             });
         };
     }
@@ -30,14 +56,17 @@ class PlacesInput extends Component {
     componentWillUnmount() {
         document.head.removeChild(this.googlePlacesScript);
     }
-
-    onChange = (e) => {
-        this.setState({ value: e.target.value });
-    }
     
     render() {
+        //we are leaving the text input uncontrolled (no inner state) because the google
+        //places api will take over. thus, we are saving the state globally using the context api.
+        //this way, our parent component can receive the updates also.
         return (
-            <input name="google-places-field" type="text" value={this.state.value} onChange={this.onChange} />
+            <input 
+                type="text" 
+                name="googlePlacesField" 
+                onChange={this.onChange} 
+            />
         );
     }
 }
@@ -46,4 +75,12 @@ PlacesInput.propTypes = {
     radius: PropTypes.number.isRequired
 }
 
-export default PlacesInput;
+export default (props) => {
+    return (
+        <PlacesConsumer>{
+            ({setLocation}) => {
+                return <PlacesInput {...props} setGlobalLocation={setLocation} />
+            }
+        }</PlacesConsumer>
+    )
+}
