@@ -33,3 +33,11 @@ This project was created with completeness in mind. It boasts Firebase Firestore
   * Riverside
   * Irvine
   * Pasadena
+
+## Libraries & APIs
+
+* [React](https://reactjs.org/)
+* [Firebase Firestore](https://firebase.google.com/docs/firestore)
+* [Google Places API](https://developers.google.com/maps/documentation/javascript/places-autocomplete)
+* [React Select](https://react-select.com)
+* [Lodash](https://lodash.com/)
