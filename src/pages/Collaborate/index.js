@@ -3,7 +3,6 @@ import firebase from 'firebase';
 import { PlacesConsumer } from '../../__context/places';
 import __isEmpty from 'lodash/isEmpty';
 import __upperFirst from 'lodash/upperFirst';
-import __intersection from 'lodash/intersection';
 import {
     locationRangeOptions,
     ideaBoxOptions,
@@ -16,6 +15,7 @@ import './Collaborate.css';
 
 import Select from 'react-select';
 import PlacesInput from '../../components/PlacesInput';
+import UserTile from '../../components/UserTile';
 
 require('firebase/firestore');
 
@@ -282,14 +282,28 @@ class Collaborate extends Component {
                                             name="refineStatus" 
                                             options={statusOptions} 
                                             placeholder="Status"
-                                            styles={selectStyles}
+                                            styles={{
+                                                ...selectStyles,
+                                                control: (base) => ({
+                                                    ...base,
+                                                    marginRight: '20px',
+                                                    cursor: 'pointer'
+                                                })
+                                            }}
                                             onChange={this.refineSearch('onlineStatus')}
                                         />
                                         <Select 
                                             name="refineGender" 
                                             options={genderOptions} 
                                             placeholder="Gender"
-                                            styles={selectStyles}
+                                            styles={{
+                                                ...selectStyles,
+                                                control: (base) => ({
+                                                    ...base,
+                                                    marginRight: '20px',
+                                                    cursor: 'pointer'
+                                                })
+                                            }}
                                             onChange={this.refineSearch('gender')}
                                         />
                                         <Select 
@@ -302,7 +316,19 @@ class Collaborate extends Component {
                                     </div>
                                 </div>
                             </div>
-
+                            <div className="results-tiles">
+                                {
+                                    this.state.searchResultsRefined.map((result) => (
+                                        <UserTile 
+                                            name={`${result.firstName} ${result.lastName}`}
+                                            location={locationString}
+                                            profileId={result.profileID}
+                                            interests={result.interests}
+                                            onlineStatus={result.onlineStatus}
+                                        />
+                                    ))
+                                }
+                            </div>
                         </div>
                     }
                 </div>

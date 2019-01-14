@@ -103,7 +103,7 @@
 }
 .results-header .search-breakdown div {
     font-size: 18px;
-    color: #888;
+    color: #aaa;
     position: relative;
 }
 .results-header .search-breakdown .second-line {
@@ -115,14 +115,12 @@
 }
 .results-header .search-breakdown .second-line div:first-of-type::after {
     content: '\00B7';
-    color: #888;
+    color: #aaa;
     position: absolute;
     top: 0;
     right: -0.5em;
     font-size: 60px;
     line-height: 0.625;
-}
-.refine-results-section {
 }
 .refine-results-section h2 {
     text-align: right;
@@ -130,6 +128,11 @@
 .refine-dropdowns {
     display: flex;
 }
-.refine-dropdowns div:not(:last-of-type) {
-    margin-right: 20px;
+.results-tiles {
+    display: grid;
+    grid-template-columns: 270px 270px 270px 270px;
+    justify-content: space-between;
+    grid-row-gap: 30px;
+    grid-column-gap: 15px;
+    margin-bottom: 50px;
 }

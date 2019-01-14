@@ -1,0 +1,96 @@
+.user-tile {
+    height: 255px;
+    box-shadow: 4px 4px 30px -5px rgba(136, 136, 136, 0.25);
+    border: 1px solid #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+}
+.user-tile .profile-image {
+    width: 75px;
+    height: 75px;
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 0 auto;
+}
+.user-tile .online-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 10px;
+    font-family: 'HindSemiBold';
+    text-align: center;
+    border-radius: 4px;
+    color: #121212;
+}
+.user-tile .online-status.online {
+    background-color: #52d317;
+}
+.user-tile .online-status.away {
+    background-color: #f39d36;
+}
+.user-tile .online-status.offline {
+    background-color: #c1c1c1;
+}
+.user-tile .profile-name {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'HindBold';
+    line-height: 1;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.user-tile .profile-location {
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 0;
+    color: #aaa;
+    line-height: 1.25;
+}
+.user-tile .interests {
+    display: flex;
+    justify-content: center;
+}
+.user-tile .interests div {
+    position: relative;
+    color: #888;
+}
+.user-tile .interests div:not(:last-of-type) {
+    margin-right: 25px;
+}
+.user-tile .interests div:not(:last-of-type)::after {
+    content: '|';
+    position: absolute;
+    top: 0;
+    right: -13px;
+    color: #888;
+}
+.user-tile .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-tile .actions a {
+    color: #121212;
+    text-decoration: none;
+    flex-basis: 48%;
+    font-size: 15px;
+    border: 1px solid #121212;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 1;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    display: block;
+}
