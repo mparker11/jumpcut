@@ -78,6 +78,12 @@ header .right-header .profile-image ~ .icon-caret-down {
     font-size: 26px;
     line-height: 0;
 }
+@media screen and (max-width: 1600px) {
+    header .inner-header {
+        padding-left: 7em;
+        padding-right: 7em;
+    }
+}
 @media screen and (max-width: 1024px) {
     header .inner-header {
         padding-left: 4em;
