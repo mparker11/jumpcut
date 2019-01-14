@@ -43,6 +43,9 @@ class Header extends Component {
                             <span>MP</span>
                             <i className="icon-caret-down"></i>
                         </button>
+                        <div className="mobile-menu-icon">
+                            <i className="icon-bars"></i>
+                        </div>
                     </div>
                 </div>
             </header>

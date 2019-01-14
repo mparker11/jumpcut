@@ -136,3 +136,47 @@
     grid-column-gap: 15px;
     margin-bottom: 50px;
 }
+@media screen and (max-width: 1024px) {
+    .hero {
+        height: 490px;
+    }
+    .hero-search-section h1 {
+        font-size: 2.5em;
+        margin-bottom: 5px;
+    }
+    .hero-search-section h2 {
+        font-size: 1.25em;
+        margin-bottom: 35px;
+    }
+    .search-form {
+        max-width: 500px;
+    }
+    .search-form .search-group input[type="text"] {
+        margin-right: 15px;
+        padding: 0.5em 2.5em;
+        font-size: 18px;
+    }
+    .search-form .search-group input[type="submit"] {
+        font-size: 18px;
+        padding: 0.5em 1.75em;
+    }
+    .results-wrapper {
+        padding: 2.8125em 4em;
+    }
+    .results-header--left h2, 
+    .refine-results-section h2 {
+        font-size: 1.25em;
+    }
+    .results-header .search-breakdown div {
+        font-size: 14px;
+    }
+    .results-header .search-breakdown .second-line div:first-of-type::after {
+        top: 0;
+        right: -0.5em;
+        font-size: 45px;
+        line-height: 0.625;
+    }
+    .results-tiles {
+        grid-template-columns: 270px 270px 270px;
+    }
+}

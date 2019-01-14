@@ -6,6 +6,7 @@ import './App.css';
 
 import Header from '../components/Header';
 import Collaborate from '../pages/Collaborate';
+import Footer from '../components/Footer';
 
 class App extends Component {
     render() {
@@ -18,7 +19,7 @@ class App extends Component {
                 <PlacesProvider>
                     <Collaborate />
                 </PlacesProvider>
-                <footer></footer>
+                <Footer />
             </>
         );
     }

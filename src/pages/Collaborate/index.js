@@ -74,9 +74,51 @@ class Collaborate extends Component {
         this.setState(newState);
     }
 
+    getSelectStyles = () => {
+        let fontSize = '20px';
+        let inputPadding = '0.75em 2.5em';
+        
+        if (window.innerWidth <= 1024) {
+            fontSize = '18px';
+            inputPadding = '0.5em 2.5em';
+        } else if (window.innerWidth <= 768) {
+
+        }
+
+        return {
+            valueContainer: (base) => ({
+                ...base,
+                padding: '0 0 0 1.375em'
+            }),
+            placeholder: (base) => ({
+                ...base,
+                fontSize: fontSize
+            }),
+            input: (provided, state) => ({
+                padding: inputPadding,
+                fontSize: fontSize,
+                backgroundColor: '#fff',
+                border: 'none',
+                borderRadius: '3px'
+            }),
+            indicatorSeparator: () => ({
+                display: 'none'
+            }),
+            control: (base) => ({
+                ...base,
+                cursor: 'pointer'
+            })
+        };
+    }
+
     searchVloggers = async (e) => {
         e.preventDefault();
 
+        if (!this.state.formDistance) {
+            alert('Please add distance');
+            return;
+        }
+        
         if (this.state.formInterests.length === 0) {
             alert('Please add interests');
             return;
@@ -166,30 +208,7 @@ class Collaborate extends Component {
     }
 
     render() {
-        const selectStyles = {
-            valueContainer: (base) => ({
-                ...base,
-                padding: '0 0 0 1.375em'
-            }),
-            placeholder: (base) => ({
-                ...base,
-                fontSize: '20px'
-            }),
-            input: (provided, state) => ({
-                padding: '0.75em 2.5em',
-                fontSize: '20px',
-                backgroundColor: '#fff',
-                border: 'none',
-                borderRadius: '3px'
-            }),
-            indicatorSeparator: () => ({
-                display: 'none'
-            }),
-            control: (base) => ({
-                ...base,
-                cursor: 'pointer'
-            })
-        };
+        
 
         const { location } = this.props;
         const locationString = `
@@ -222,7 +241,7 @@ class Collaborate extends Component {
                                     name="formDistance" 
                                     options={locationRangeOptions}
                                     placeholder="Distance"
-                                    styles={selectStyles}
+                                    styles={this.getSelectStyles()}
                                     onChange={this.selectOption}
                                 />
                             </div>
@@ -232,7 +251,7 @@ class Collaborate extends Component {
                                     isMulti
                                     options={this.state.interests}
                                     placeholder="What are your interests?"
-                                    styles={selectStyles}
+                                    styles={this.getSelectStyles()}
                                     onChange={this.selectOption}
                                 />
                             </div>
@@ -241,7 +260,7 @@ class Collaborate extends Component {
                                     name="formOtherStuff" 
                                     options={ideaBoxOptions} 
                                     placeholder="What else are you searching?"
-                                    styles={selectStyles}
+                                    styles={this.getSelectStyles()}
                                 />
                             </div>
                             <div className="search-group">
@@ -283,7 +302,7 @@ class Collaborate extends Component {
                                             options={statusOptions} 
                                             placeholder="Status"
                                             styles={{
-                                                ...selectStyles,
+                                                ...this.getSelectStyles(),
                                                 control: (base) => ({
                                                     ...base,
                                                     marginRight: '20px',
@@ -297,7 +316,7 @@ class Collaborate extends Component {
                                             options={genderOptions} 
                                             placeholder="Gender"
                                             styles={{
-                                                ...selectStyles,
+                                                ...this.getSelectStyles(),
                                                 control: (base) => ({
                                                     ...base,
                                                     marginRight: '20px',
@@ -310,7 +329,7 @@ class Collaborate extends Component {
                                             name="refineAge" 
                                             options={ageOptions} 
                                             placeholder="Age"
-                                            styles={selectStyles}
+                                            styles={this.getSelectStyles()}
                                             onChange={this.refineSearch('age')}
                                         />
                                     </div>

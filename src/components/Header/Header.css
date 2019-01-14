@@ -72,3 +72,25 @@ header .right-header .profile-image ~ .icon-caret-down {
     position: relative;
     top: 3px;
 }
+.mobile-menu-icon {
+    display: none;
+    color: #fff;
+    font-size: 26px;
+    line-height: 0;
+}
+@media screen and (max-width: 1024px) {
+    header .inner-header {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+    header .left-header a:not(.logo) {
+        display: none;
+    }
+    header .right-header button {
+        display: none;
+    }
+    .mobile-menu-icon {
+        display: block;
+        
+    }
+}
