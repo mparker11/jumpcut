@@ -5,14 +5,14 @@ The purpose of this project is not only to show that I can code from a UI perspe
 
 ## Viewing This Project
 
-This web test has a live link that can be view at https://adoring-varahamihira-0713cd.netlify.com. If you would like to install it locally, please follow these instructions:
+This web test has a live link that can be viewed at https://adoring-varahamihira-0713cd.netlify.com. If you would like to install it locally, please follow these instructions:
 
 * Run `npm install` or `yarn`
 * After installation, run `npm start` or `yarn start`
 
 ## Things you should know
 
-This project was created with completeness in mind. It boasts Firebase Firestore (database) with "live" data, React's Context API, the Google Places API, as well as a front end architecture that it meant for a true web app. Please keep these points in mind as you play with the web page:
+This project was created with completeness in mind. It boasts Firebase Firestore (database) with "live" data, React's Context API, the Google Places API, as well as a front end architecture that is meant for a true web app. Please keep these points in mind as you play with the web page:
 
 * Searching is fully functional.
   * It ignores the last dropdown.
